@@ -1,8 +1,8 @@
 {
   "name": "new_snacks_api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "get info of new goods about convenience store",
+  "main": "dist/app.js",
   "scripts": {
     "start:local": "cross-env NODE_ENV=local nodemon ./dist/local-app.js",
     "start:prod": "cross-env NODE_ENV=prod nodemon ./dist/local-app.js",

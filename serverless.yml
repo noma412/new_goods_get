@@ -1,19 +1,23 @@
-service: serverless-express-test
+service: new-goods-get
 
 provider:
   name: aws
-  runtime: nodejs1r\4.x
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
   region: ap-northeast-1
+  stage: prod
 
 package:
   exclude:
-    - .git/**
-    - test/**
+    - .serverless/**
+    - .vscode/**
+    - src/**
+    - .gitignore
+    - package.json
+    - package-lock.json
+    - tsconfig.json
     - README.md
 
 functions:
-  serverlessTest:
+  func:
     handler: lambda.handler
-    events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
