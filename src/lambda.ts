@@ -1,9 +1,18 @@
 import serverlessExpress from '@vendia/serverless-express'
 import app from './app'
 
-const anyServerlessEspress = serverlessExpress as any
+let serverlessExpressInstance
 
-const server = anyServerlessEspress.createServer(app)
+async function setup(event, context) {
+  serverlessExpressInstance = serverlessExpress({ app })
+  return serverlessExpressInstance(event, context)
+}
 
-exports.handler = (event, context) =>
-  anyServerlessEspress.proxy(server, event, context)
+function handler(event, context) {
+  if (serverlessExpressInstance)
+    return serverlessExpressInstance(event, context)
+
+  return setup(event, context)
+}
+
+exports.handler = handler

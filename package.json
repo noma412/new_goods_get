@@ -1,5 +1,5 @@
 {
-  "name": "new_snacks_api",
+  "name": "new_goods_get",
   "version": "1.0.0",
   "description": "get info of new goods about convenience store",
   "main": "dist/app.js",
@@ -14,7 +14,6 @@
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^16.11.7",
-    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.15"
   },

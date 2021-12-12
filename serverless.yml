@@ -20,4 +20,4 @@ package:
 
 functions:
   func:
-    handler: lambda.handler
+    handler: dist/lambda.handler

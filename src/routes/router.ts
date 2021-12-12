@@ -3,12 +3,12 @@ import mysql from 'mysql'
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/default/new-goods-get-prod-func', (req, res) => {
   const localFlg: boolean = process.env.NODE_ENV === 'local' ? true : false
   const connection = mysql.createConnection({
     host: localFlg
       ? 'localhost'
-      : 'new-goods-instance.c4gr8yy5e4ab.us-east-2.rds.amazonaws.com',
+      : 'new-goods-instance.czcshofywjfu.ap-northeast-1.rds.amazonaws.com',
     user: localFlg ? 'root' : 'noma',
     password: 'Toeic900',
     database: 'convenience_store_info',
@@ -56,6 +56,7 @@ router.get('/', (req, res) => {
   })
   Promise.all([num, data]).then((values) => {
     res.json({ num: values[0], data: values[1] })
+    connection.end()
   })
 })
 

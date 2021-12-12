@@ -161,9 +161,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/new-goods-get/prod/1638697146840-2021-12-05T09:39:06.840Z/new-goods-get.zip"
+          "S3Key": "serverless/new-goods-get/prod/1638794431716-2021-12-06T12:40:31.716Z/new-goods-get.zip"
         },
-        "Handler": "lambda.handler",
+        "Handler": "dist/lambda.handler",
         "Runtime": "nodejs14.x",
         "FunctionName": "new-goods-get-prod-func",
         "MemorySize": 1024,
@@ -179,14 +179,14 @@
         "FuncLogGroup"
       ]
     },
-    "FuncLambdaVersionE21V0S0nH7s7XTwt9nglBPu729iibVIxBlHI0CgLPk": {
+    "FuncLambdaVersionsrnN3IVIyDRgwRaNdOhx0K6WUSnfbcyeuPGfuFlRcY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "FuncLambdaFunction"
         },
-        "CodeSha256": "r+v7D8A49dmzpZF5WmyNl/9sTFdllNhQpFB7bJtj234="
+        "CodeSha256": "HGWP4Skpa/jGNeUmYqrbAnGpVVd+8fg3cID5bEtONks="
       }
     }
   },
@@ -202,7 +202,7 @@
     "FuncLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "FuncLambdaVersionE21V0S0nH7s7XTwt9nglBPu729iibVIxBlHI0CgLPk"
+        "Ref": "FuncLambdaVersionsrnN3IVIyDRgwRaNdOhx0K6WUSnfbcyeuPGfuFlRcY"
       },
       "Export": {
         "Name": "sls-new-goods-get-prod-FuncLambdaFunctionQualifiedArn"
