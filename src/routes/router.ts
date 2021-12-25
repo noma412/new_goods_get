@@ -36,6 +36,7 @@ router.get('/default/new-goods-get-prod-func', (req, res) => {
 
   const name = `WHERE name = '${req.query.name}'`
   const offset = `OFFSET ${req.query.offset}`
+  const date = req.query.name === 'FamilyMart' ? 'date' : 'release_date'
 
   const num = new Promise((resolve, reject) => {
     connection.query(
@@ -47,7 +48,7 @@ router.get('/default/new-goods-get-prod-func', (req, res) => {
     )
   })
   const data = new Promise((resolve, reject) => {
-    const mysqlQuery = `SELECT * FROM new_goods ${name} ORDER BY date DESC LIMIT 50 ${offset}`
+    const mysqlQuery = `SELECT * FROM new_goods ${name} ORDER BY ${date} DESC LIMIT 50 ${offset}`
     connection.query(mysqlQuery, (error, results: response[]) => {
       if (error) reject(error)
       // console.dir(results, { depth: null })
