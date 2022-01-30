@@ -5,6 +5,7 @@ const router = express.Router()
 
 router.get('/default/new-goods-get-prod-func', (req, res) => {
   const localFlg: boolean = process.env.NODE_ENV === 'local' ? true : false
+  //データベースに接続
   const connection = mysql.createConnection({
     host: localFlg
       ? 'localhost'
@@ -38,6 +39,7 @@ router.get('/default/new-goods-get-prod-func', (req, res) => {
   const offset = `OFFSET ${req.query.offset}`
   const date = req.query.name === 'FamilyMart' ? 'date' : 'release_date'
 
+  //データベースから取得した情報を返却
   const num = new Promise((resolve, reject) => {
     connection.query(
       `SELECT count(*) FROM new_goods ${name}`,
